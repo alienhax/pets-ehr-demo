@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  fastapi:
+    build: ./fastapi
+    container_name: pets-fastapi
+    networks:
+      - petsehrnet
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+  laravel:
+    build: ./laravel
+    container_name: pets-laravel
+    networks:
+      - petsehrnet
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    container_name: pets-postgres
+    environment:
+      POSTGRES_USER: petadmin
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: petsehr
+    volumes:
+      - pets-postgres-data:/var/lib/postgresql/data
+    networks:
+      - petsehrnet
+
+networks:
+  petsehrnet:
+    driver: bridge
+
+volumes:
+  pets-postgres-data:
+    driver: local

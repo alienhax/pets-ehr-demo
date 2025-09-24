@@ -2,9 +2,9 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [ "pets-ehr-demo", "pets-ehr-prod" ]
+    branches: [ "main", "pets-ehr-demo", "pets-ehr-prod" ]
   pull_request:
-    branches: [ "pets-ehr-demo", "pets-ehr-prod" ]
+    branches: [ "main", "pets-ehr-demo", "pets-ehr-prod" ]
 
 jobs:
   build-node:

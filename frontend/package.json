@@ -1,0 +1,3 @@
+- name: Install dependencies
+  run: npm install --package-lock-only || echo "No package.json found, skipping"
+  working-directory: frontend

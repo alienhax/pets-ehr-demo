@@ -1,3 +1,9 @@
-- name: Install dependencies
-  run: npm install --package-lock-only || echo "No package.json found, skipping"
-  working-directory: frontend
+{
+  "name": "pets-ehr-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "echo \"No frontend build yet\"",
+    "test": "echo \"No frontend tests yet\" && exit 0"
+  }
+}
